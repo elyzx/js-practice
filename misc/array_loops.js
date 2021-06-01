@@ -3,6 +3,11 @@
 // If the function is invoked with an empty array, it should return 0
 
 function uniqueFoods(foods) {
+  
+  if (foods.length == 0) {
+    return 0
+  }
+  
   let result = []
   for (let i = 0; i < foods.length; i++){
     if (!result.includes(foods[i])) {
