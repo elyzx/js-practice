@@ -65,14 +65,14 @@ logIn()
 //      2. Consuming promises all together 
 //-------------------------------------------
 
+// use when promises are not dependent on each other
 Promise.allSettled( [ getImages(), getComments() ] )
     .then (( [images, comments ]) => {
       console.log(images)
       console.log(comments)
     })
 
-// or
-
+// use when promises are dependent on each other
 Promise.all( [ getImages(), getComments() ] )
     .then (( [images, comments] ) => {
       console.log(images)
