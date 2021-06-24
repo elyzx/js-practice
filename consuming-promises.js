@@ -65,11 +65,19 @@ logIn()
 //      2. Consuming promises all together 
 //-------------------------------------------
 
-Promise.all( [ getImages(), getComments() ] )
-.then (( [images, comments] ) => {
+Promise.allSettled( [ getImages(), getComments() ] )
+    .then (( [images, comments ]) => {
       console.log(images)
       console.log(comments)
-})
-.catch((error) => {
-      console.log(error)
-})
+    })
+
+// or
+
+Promise.all( [ getImages(), getComments() ] )
+    .then (( [images, comments] ) => {
+      console.log(images)
+      console.log(comments)
+    })
+    .catch((error) => {
+       console.log(error)
+    })
